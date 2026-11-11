@@ -1,7 +1,14 @@
 fs: 1000
-window: 512
-hop: 256
+window: 1024
+hop: 512
 seed: 42
-classes: [normal, imbalance, blocked, loose]
-rpm_hz: 30.0
+classes: [normal, imbalance, loose, blocked]
+channels: [ax, ay, az, current]
+accel_lsb_per_g: 16384
+adc_bits: 12
+vref: 3.3
+shunt_ohm: 1.0
+drop_first_s: 3
 bands: [[0, 50], [50, 100], [100, 200], [200, 500]]
+rpm_hz: 30.0   # temporary; will be estimated per recording
+spec_version: v1
