@@ -1,0 +1,7 @@
+fs: 1000
+window: 512
+hop: 256
+seed: 42
+classes: [normal, imbalance, blocked, loose]
+rpm_hz: 30.0
+bands: [[0, 50], [50, 100], [100, 200], [200, 500]]
