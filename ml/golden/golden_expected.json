@@ -1,0 +1,44 @@
+{
+  "note": "Synthetic raw window; model weights are synthetic too, so logits mean nothing. Use only to check the board matches ONNX.",
+  "input_layout": "channel-first [1,4,1024]: ax,ay,az,current; each channel contiguous",
+  "input_float_first8": [
+    0.05378200113773346,
+    0.06978300213813782,
+    0.5737940073013306,
+    0.7937999963760376,
+    0.4804590046405792,
+    0.6831300258636475,
+    0.9564700126647949,
+    0.8711349964141846
+  ],
+  "input_int8_first8_ch0": [
+    1,
+    2,
+    15,
+    20,
+    12,
+    17,
+    24,
+    22
+  ],
+  "input_int8_sum_per_channel": [
+    4,
+    0,
+    16,
+    -586
+  ],
+  "expected_logits_float": [
+    3.807950019836426,
+    -2.1937100887298584,
+    -0.4553000032901764,
+    -3.1043100357055664
+  ],
+  "expected_logits_int8": [
+    65,
+    -80,
+    -38,
+    -102
+  ],
+  "expected_argmax": 0,
+  "tolerance": "int8 logits within +/-1 LSB; argmax must match; per-channel input int8 sums should match exactly if rounding is half-to-even"
+}
