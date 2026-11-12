@@ -12,7 +12,7 @@ std = np.array(norm["std"], dtype=np.float32)
 assert len(mean) == len(std) == 4, "expected 4 channels"
 
 # input scale / zero-point from the float-input INT8 model (QuantizeLinear on the input)
-m = onnx.load(M / "tinycnn_int8.onnx")
+m = onnx.load(sys.argv[1] if len(sys.argv) > 1 else M / "tinycnn_int8.onnx")
 g = m.graph
 inp = g.input[0].name
 q = next(n for n in g.node if n.op_type == "QuantizeLinear" and n.input[0] == inp)

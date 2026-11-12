@@ -1,7 +1,8 @@
-import onnx, numpy as np
+import sys, onnx, numpy as np
 from onnx import TensorProto, numpy_helper
 
-SRC, DST = "../models/tinycnn_int8.onnx", "../models/tinycnn_int8_in8.onnx"
+SRC = sys.argv[1] if len(sys.argv) > 1 else "../models/tinycnn_int8.onnx"
+DST = sys.argv[2] if len(sys.argv) > 2 else "../models/tinycnn_int8_in8.onnx"
 m = onnx.load(SRC)
 g = m.graph
 inp = g.input[0]
