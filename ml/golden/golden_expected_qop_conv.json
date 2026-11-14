@@ -1,0 +1,29 @@
+{
+  "model": "tinycnn_qop_conv_in8.onnx",
+  "note": "Synthetic window and weights. Logits mean nothing; use only to check board == ONNX.",
+  "input_layout": "channel-first [1,4,1024]: ax,ay,az,current, int8, scale 0.03954191, zp 0",
+  "input_int8_first8_ch0": [
+    1,
+    2,
+    15,
+    20,
+    12,
+    17,
+    24,
+    22
+  ],
+  "input_int8_sum_per_channel": [
+    4,
+    0,
+    16,
+    -586
+  ],
+  "expected_logits_float": [
+    3.80929,
+    -2.214917,
+    -0.409218,
+    -3.109486
+  ],
+  "expected_argmax": 0,
+  "tolerance": "input int8 sums exact; logits within 1e-3; argmax must match"
+}
