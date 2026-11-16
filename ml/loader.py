@@ -5,7 +5,7 @@ from windowing import make_windows
 cfg = yaml.safe_load(open("configs/config.yaml"))
 
 def load_recording(path):
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, comment="#")
     df = df[df["sample_idx"] >= cfg["drop_first_s"] * cfg["fs"]]    # drop spin-up
     g = df[["ax", "ay", "az"]].to_numpy(float) / cfg["accel_lsb_per_g"]
     full = 2 ** cfg["adc_bits"] - 1
